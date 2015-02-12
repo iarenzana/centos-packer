@@ -1,9 +1,10 @@
 centos-packer
 =============
 
-CentOS 6.5 / 7.0 x64 + Chef + VirtualBox / VMWare for Packer Template
+CentOS 6.5 / 7.0 x64 + VirtualBox / VMWare for Packer Template
+Requires [Packer] (https://packer.io) and [Vagrant] (https://www.vagrantup.com).
 
-## Packer Build for VirtualBox
+##1) Packer Build for VirtualBox
 
 ```
 cd centos6 or centos7
@@ -11,49 +12,24 @@ packer validate [ CentOS_6.5.json | CentOS_7.0.json ]
 VERSION=vv20150129 packer build [ -only virtualbox-iso | -only vmware-iso ]  [ CentOS_6.5.json | CentOS_7.0.json ]
 ```
 
-## Add Vagrant Box
+##2) Add Vagrant Box
 
 ```
-box add BOXNAME INSANEWORKS-CentOS-6.5-x86_64-vv20150129-virtualbox.box
-box add BOXNAME INSANEWORKS-CentOS-7.0-x86_64-vv20150129-virtualbox.box
+vagrant box add iarenzana/centos6 IAR-CentOS-6.5-x86_64-vv20150129-virtualbox.box
+vagrant box add iarenzana/centos7 IAR-CentOS-7.0-x86_64-vv20150129-virtualbox.box
 or
-box add BOXNAME INSANEWORKS-CentOS-6.5-x86_64-vv20150129-vmware.box
-box add BOXNAME INSANEWORKS-CentOS-7.0-x86_64-vv20150129-vmware.box
+vagrant box add iarenzana/centos6 IAR-CentOS-6.5-x86_64-vv20150129-vmware.box
+vagrant box add iarenzana/centos7 IAR-CentOS-7.0-x86_64-vv20150129-vmware.box
 ```
 
-## Vagrant Cloud
-
-```
-mkdir centos
-cd centos
-vagrant init insaneworks/centos
-or
-vagrant init insaneworks/centos7
-vagrant up
-```
-
-
-## or Public URL Init
-
-```
-mkdir centos
-cd centos
-vagrant init INSANEWORKS-CentOS-6.5-x86_64-vv20150129 http://www.insaneworks.co.jp/pub/boxes/INSANEWORKS-CentOS-6.5-x86_64-vv20150129-virtualbox.box
-vagrant init INSANEWORKS-CentOS-7.0-x86_64-vv20150129 http://www.insaneworks.co.jp/pub/boxes/INSANEWORKS-CentOS-7.0-x86_64-vv20150129-virtualbox.box
-or
-vagrant init INSANEWORKS-CentOS-6.5-x86_64-vv20150129 http://www.insaneworks.co.jp/pub/boxes/INSANEWORKS-CentOS-6.5-x86_64-vv20150129-vmware.box
-vagrant init INSANEWORKS-CentOS-7.0-x86_64-vv20150129 http://www.insaneworks.co.jp/pub/boxes/INSANEWORKS-CentOS-7.0-x86_64-vv20150129-vmware.box
-vagrant up
-```
-
-## or Edit Vagrantfile (Vagrant 1.5.0 or Higher)
+##3) Edit Vagrantfile (Vagrant 1.5.0 or Higher)
 
 ```diff
    # please see the online documentation at vagrantup.com.
 
    # Every Vagrant virtual environment requires a box to build off of.
--  config.vm.box = "base"
-+  config.vm.box = "insaneworks/centos" or "insaneworks/centos7"
+-  config.vm.box = "centos"
++  config.vm.box = "iarenzana/centos6" or "iarenzana/centos7"
 
    # Create a forwarded port mapping which allows access to a specific port
    # within the machine from a port on the host machine. In the example below,

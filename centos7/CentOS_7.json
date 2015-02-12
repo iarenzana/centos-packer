@@ -17,13 +17,13 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "INSANEWORKS-CentOS-7.0-x86_64-{{user `version`}}-{{.Provider}}.box"
+      "output": "IAR-CentOS-7.0-x86_64-{{user `version`}}-{{.Provider}}.box"
     }
   ],
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://ftp.iij.ad.jp/pub/linux/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-NetInstall.iso",
+      "iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-NetInstall.iso",
       "iso_checksum": "df6dfdd25ebf443ca3375188d0b4b7f92f4153dc910b17bccc886bd54a7b7c86",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
@@ -46,7 +46,7 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://ftp.iij.ad.jp/pub/linux/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-NetInstall.iso",
+      "iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-NetInstall.iso",
       "iso_checksum": "df6dfdd25ebf443ca3375188d0b4b7f92f4153dc910b17bccc886bd54a7b7c86",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
