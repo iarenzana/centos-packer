@@ -22,18 +22,7 @@ vagrant box add iarenzana/centos6 IAR-CentOS-6.5-x86_64-vv20150129-vmware.box
 vagrant box add iarenzana/centos7 IAR-CentOS-7.0-x86_64-vv20150129-vmware.box
 ```
 
-##3) Edit Vagrantfile (Vagrant 1.5.0 or Higher)
-
-```diff
-   # please see the online documentation at vagrantup.com.
-
-   # Every Vagrant virtual environment requires a box to build off of.
--  config.vm.box = "centos"
-+  config.vm.box = "iarenzana/centos6" or "iarenzana/centos7"
-
-   # Create a forwarded port mapping which allows access to a specific port
-   # within the machine from a port on the host machine. In the example below,
-```
+##3) Vagrant up!
 
 ```
 vagrant up
