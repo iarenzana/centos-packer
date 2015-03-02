@@ -17,9 +17,9 @@
     "type": "amazon-ebs",
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
-    "region": "us-west-2",
+    "region": "us-east-1",
     "source_ami": "ami-b6bdde86",
-    "instance_type": "c3.xlarge",
+    "instance_type": "t2.medium",
     "ssh_username": "root",
     "ami_name": "CentOS6 Official with Update plus Cloudinit {{timestamp}}"
   }]
