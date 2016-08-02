@@ -18,17 +18,18 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "IAR-CentOS-6.6-x86_64-{{user `version`}}-{{.Provider}}.box"
+      "output": "IAR-CentOS-6.8-x86_64-{{user `version`}}-{{.Provider}}.box"
     }
   ],
   "builders": [
     {
       "type": "virtualbox-iso",
-      "iso_url": "http://mirror.cogentco.com/pub/linux/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-netinstall.iso",
-      "iso_checksum": "ad8f6de098503174c7609d172679fa0dd276f4b669708933d9c4927bd3fe1017",
+      "iso_url": "http://mirrors.kernel.org/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-netinstall.iso",
+      "iso_checksum": "56d9cc5757ed1443af7b321967622a108978328f72e58050d31bcf1998dfd162",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
+      "ssh_timeout": "15m",
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
@@ -47,11 +48,12 @@
     },
     {
       "type": "vmware-iso",
-      "iso_url": "http://mirror.cogentco.com/pub/linux/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-netinstall.iso",
-      "iso_checksum": "ad8f6de098503174c7609d172679fa0dd276f4b669708933d9c4927bd3fe1017",
+      "iso_url": "http://mirrors.kernel.org/centos/6.8/isos/x86_64/CentOS-6.8-x86_64-netinstall.iso",
+      "iso_checksum": "56d9cc5757ed1443af7b321967622a108978328f72e58050d31bcf1998dfd162",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
+      "ssh_timeout": "15m",
       "disk_size": "100000",
       "tools_upload_flavor": "linux",
       "guest_os_type": "centos-64",
