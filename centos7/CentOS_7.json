@@ -1,6 +1,8 @@
 {
   "variables": {
-    "version": "{{env `VERSION`}}"
+      "version": "{{env `VERSION`}}",
+      "latest_rev" : "1804",
+      "latest_hash" : "937bf0a7b0932817f84f7230f15ed88911bbbd85c0c958680792b7f8d8f9c1a9"
   },
   "provisioners": [
     {
@@ -23,8 +25,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
-	"iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1503.iso",
-      "iso_checksum": "498bb78789ddc7973fe14358822eb1b48521bbaca91c17bd132c7f8c903d79b3",
+    	"iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-{{user `latest_rev`}}.iso",
+      "iso_checksum": "{{user `latest_hash`}}",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
@@ -47,8 +49,8 @@
     },
     {
       "type": "vmware-iso",
-	"iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1503.iso",
-      "iso_checksum": "498bb78789ddc7973fe14358822eb1b48521bbaca91c17bd132c7f8c903d79b3",
+      "iso_url": "http://mirror.cogentco.com/pub/linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-{{user `latest_rev`}}.iso",
+      "iso_checksum": "{{user `latest_hash`}}",
       "iso_checksum_type": "sha256",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
